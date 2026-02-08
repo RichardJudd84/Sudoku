@@ -1,0 +1,37 @@
+<div class="inner__container">
+  <div class="board__container">
+    <div class="board">
+      @for (row of cells; track $index) {
+        <div class="row">
+          @for (cell of row; track $index) {
+            <app-sudoku-cell
+              class="cell"
+              [cell]="cell"
+              [(selectedValue)]="selectedValue"
+              [inputMode]="inputMode"
+            />
+          }
+        </div>
+      }
+    </div>
+    <div class="value_selector__container">
+      @for (value of cellValues; track $index) {
+        <button
+          type="button"
+          class="value_selector__button"
+          [class.selected]="value === selectedValue"
+          (click)="selectValue(value)"
+        >
+          {{ value }}
+        </button>
+      }
+      <button type="button" class="value_selector__button" (click)="toggleInputMode()">
+        @if (inputMode === 'VALUE') {
+          <fa-icon [icon]="faPencil"></fa-icon>
+        } @else {
+          <fa-icon [icon]="faPenToSquare"></fa-icon>
+        }
+      </button>
+    </div>
+  </div>
+</div>

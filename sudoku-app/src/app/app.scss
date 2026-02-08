@@ -1,0 +1,21 @@
+:host {
+  header {
+    display: block;
+    height: var(--headerHeight);
+    max-height: var(--headerHeight);
+    overflow: hidden;
+  }
+  main {
+    --height: calc(100dvh - (var(--headerHeight) + var(--footerHeight)));
+    display: block;
+    overflow: auto;
+    height: var(--height);
+    max-height: var(--height);
+  }
+  footer {
+    display: block;
+    height: var(--footerHeight);
+    max-height: var(--footerHeight);
+    overflow: hidden;
+  }
+}
