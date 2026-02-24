@@ -1,0 +1,7 @@
+.controls__container {
+  height: var(--controlsHeight);
+}
+
+.board__container {
+  height: calc(100% - var(--controlsHeight));
+}

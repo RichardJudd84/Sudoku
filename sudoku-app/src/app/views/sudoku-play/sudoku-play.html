@@ -1,0 +1,7 @@
+<div class="controls__container">
+  <app-sudoku-contols>
+    <app-reset-control (click)="resetGame()" />
+    <app-new-control (click)="newGame()" />
+  </app-sudoku-contols>
+</div>
+<div class="board__container"><app-sudoku-board [cells]="puzzle" /></div>

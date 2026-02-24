@@ -6,10 +6,24 @@
   font-family: 'Courier New', Courier, monospace;
 }
 
+html,
+body {
+  min-width: 320px;
+  min-height: 480px;
+  overflow: auto;
+}
+
 body {
   --headerHeight: 60px;
-  --footerHeight: 60px;
+  --controlsHeight: 60px;
+
+  --puzzleColor: brown;
+  --solutionColor: darkmagenta;
+  --possibleValueColor: darkgreen;
+
   margin: 0px;
+  height: 100dvh;
+  width: 100vw;
 
   h1 {
     font-family: 'Courier New', Courier, monospace;

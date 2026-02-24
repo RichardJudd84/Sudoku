@@ -1,0 +1,21 @@
+@if (!cell.value && inputMode !== 'PUZZLE') {
+  <div class="possible_value__container">
+    @for (item of cell.possibleValues | keyvalue; track item.key) {
+      <div class="possible_value" [class.selected]="selectedValue.toString() === item.key">
+        @if (item.value) {
+          {{ item.key }}
+        }
+      </div>
+    }
+  </div>
+}
+
+<button
+  class="cell__button"
+  [class.selected]="selectedValue === cell.value"
+  [class.readonly]="cell.readonly"
+  (click)="cellClicked()"
+  (keydown)="onKeyDown($event)"
+>
+  {{ cell.value }}
+</button>

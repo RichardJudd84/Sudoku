@@ -1,0 +1,122 @@
+:host {
+  container-type: size;
+
+  display: block;
+  height: 100%;
+  width: 100%;
+  padding: 8px;
+
+  .inner__container {
+    --boardSide: min(100cqw, calc((100cqh - 16px) * 0.9));
+    font-size: calc((var(--boardSide) / 9) * 0.8);
+
+    display: flex;
+    flex-direction: row;
+
+    .board__container {
+      flex-grow: 0;
+      flex-shrink: 0;
+    }
+
+    .board {
+      display: grid;
+      grid-template-rows: repeat(9, 1fr);
+      height: var(--boardSide);
+      width: var(--boardSide);
+      background-color: lightyellow;
+      border-radius: 8px;
+      border: 4px solid black;
+    }
+
+    .cell {
+      border: 1px solid darkslategrey;
+      flex-grow: 1;
+      &:nth-child(1) {
+        border-left: none;
+      }
+      &:nth-child(3),
+      &:nth-child(6) {
+        border-right: 2px solid black;
+      }
+      &:nth-child(4),
+      &:nth-child(7) {
+        border-left: 2px solid black;
+      }
+      &:nth-child(1) {
+        border-right: none;
+      }
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: repeat(9, 1fr);
+      &:nth-child(1) {
+        .cell {
+          border-top: none;
+        }
+      }
+      &:nth-child(3),
+      &:nth-child(6) {
+        .cell {
+          border-bottom: 2px solid black;
+        }
+      }
+      &:nth-child(4),
+      &:nth-child(7) {
+        .cell {
+          border-top: 2px solid black;
+        }
+      }
+      &:nth-child(9) {
+        .cell {
+          border-bottom: none;
+        }
+      }
+    }
+
+    .value_selector__container {
+      width: var(--boardSide);
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      border: 4px solid black;
+      border-radius: 8px;
+      margin-top: 4px;
+
+      .value_selector__button {
+        aspect-ratio: 1;
+        border: none;
+        border-right: 1px solid black;
+        border-left: 1px solid black;
+
+        background-color: lightyellow;
+        color: var(--solutionColor);
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 0.65em;
+
+        fa-icon {
+          font-size: 0.7em;
+        }
+
+        &.selected {
+          font-weight: 700;
+        }
+
+        &.notes {
+          color: var(--possibleValueColor);
+        }
+
+        &.new_puzzle {
+          color: var(--puzzleColor);
+        }
+
+        &:nth-child(1) {
+          border-left: none;
+        }
+
+        &:nth-child(10) {
+          border-right: none;
+        }
+      }
+    }
+  }
+}

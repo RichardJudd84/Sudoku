@@ -1,0 +1,48 @@
+<div class="inner__container">
+  <div class="board__container">
+    <div class="board">
+      @for (row of cells; track $index) {
+        <div class="row">
+          @for (cell of row; track $index) {
+            <app-sudoku-cell
+              class="cell"
+              [cell]="cell"
+              [(selectedValue)]="selectedValue"
+              [inputMode]="inputMode"
+            />
+          }
+        </div>
+      }
+    </div>
+    <div class="value_selector__container">
+      @for (value of cellValues; track $index) {
+        <button
+          type="button"
+          class="value_selector__button"
+          [class.selected]="value === selectedValue"
+          [class.notes]="inputMode === 'POSSIBLE_VALUES'"
+          [class.new_puzzle]="inputMode === 'PUZZLE'"
+          (click)="selectValue(value)"
+        >
+          {{ value }}
+        </button>
+      }
+      <button
+        type="button"
+        class="value_selector__button"
+        [class.notes]="inputMode === 'POSSIBLE_VALUES'"
+        [class.new_puzzle]="inputMode === 'PUZZLE'"
+        [disabled]="inputMode === 'PUZZLE'"
+        (click)="inputModeControlClicked()"
+      >
+        @if (inputMode === 'VALUE') {
+          <fa-icon [icon]="faPencil"></fa-icon>
+        } @else if (inputMode === 'POSSIBLE_VALUES') {
+          <fa-icon [icon]="faPenToSquare"></fa-icon>
+        } @else if (inputMode === 'PUZZLE') {
+          <fa-icon [icon]="faPen"></fa-icon>
+        }
+      </button>
+    </div>
+  </div>
+</div>
