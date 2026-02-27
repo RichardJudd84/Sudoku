@@ -57,3 +57,12 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+To serve with service worker
+run: ng build --configuration production
+run: python server.py --dir dist/sudoku-app/browser --port 8080 --ssl
+open browser in localhost:8080
+or over network 192.168.1.24:8080
+
+To test over network with hot reload
+run: ng serve --host 0.0.0.0
