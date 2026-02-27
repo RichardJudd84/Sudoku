@@ -42,7 +42,7 @@ jobs:
           action: "upload"
           app_location: "./sudoku-app"
           api_location: ""
-          output_location: "dist/angular-basic"
+          output_location: "dist/angular-basic/browser"
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
@@ -55,4 +55,5 @@ jobs:
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_GREEN_SMOKE_038991810 }}
           action: "close"
+
 
